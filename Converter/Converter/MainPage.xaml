@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Converter.MainPage"
+             xmlns:model="clr-namespace:Converter.Models"
+             xmlns:viewmodel="clr-namespace:Converter.ViewModels"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="True"
+             Title="Measurement Converter"
+             x:DataType="viewmodel:MeasurementViewModel">
+
+    <StackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+        <Label
+                Text="Measurement Converter!"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="25"
+                HorizontalOptions="Center" />
+            
+            <Editor x:Name="measurementEditor"
+                Placeholder="Enter your response here" 
+                    Keyboard="Numeric"/>
+
+            <Picker 
+                x:Name="fromPicker"                
+                Title="Measurement From"
+                ItemsSource="{Binding Measurements}"
+                ItemDisplayBinding="{Binding Name}" />
+            
+            <Picker 
+                x:Name="toPicker"                
+                Title="Measurement To"
+                ItemsSource="{Binding Measurements}"
+                ItemDisplayBinding="{Binding Name}"/>
+
+            <Editor x:Name="measurementResult"/>
+            <!--<Label Text="{Binding SelectedMonkey.Name}" />-->
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Click me"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="ConvertMeasurement"
+                HorizontalOptions="Center" />
+
+        </StackLayout>
+
+</ContentPage>
