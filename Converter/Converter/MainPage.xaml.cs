@@ -11,11 +11,24 @@ public partial class MainPage : ContentPage
 
     void ConvertMeasurement(object sender, EventArgs e)
     {
-        var from = fromPicker.SelectedItem as Measurement;
-        var to = toPicker.SelectedItem as Measurement;
-        string myText = measurementEditor.Text;
+		try
+		{
+            var from = fromPicker?.SelectedItem as Measurement;
+            var to = toPicker?.SelectedItem as Measurement;
+            string myText = measurementEditor.Text;
 
-        measurementResult.Text = $"Convert {myText} {from.Name}s to 1 {to.Name} ";
+            measurementResult.Text = $"Convert {myText} {from.Name}s to 1 {to.Name} ";
+        }
+        catch (NullReferenceException)
+        {
+            Shell.Current.DisplayAlert("Please complete all the selections!", "", "OK");
+        }
+
+        catch (Exception ex)
+        {
+            Shell.Current.DisplayAlert("Error!", ex.Message, "OK");
+        }
+
     }
 }
 

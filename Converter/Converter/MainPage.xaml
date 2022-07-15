@@ -12,7 +12,8 @@
     <StackLayout
             Spacing="25"
             Padding="30,0"
-            VerticalOptions="Center">
+            VerticalOptions="Center"
+            HorizontalOptions="Center">
         <Label
                 Text="Measurement Converter!"
                 SemanticProperties.HeadingLevel="Level1"
