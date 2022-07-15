@@ -11,4 +11,16 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
+    <Application.MainPage>
+        <Shell>
+            <TabBar x:Name="MeasurementTabs">
+                <Tab Title="Weight" Icon="weight.svg">
+                    <ShellContent ContentTemplate="{DataTemplate local:WeightPage}"/>
+                </Tab>
+                <Tab Title="Volume" Icon="tbs.svg">
+                    <ShellContent ContentTemplate="{DataTemplate local:VolumePage}"/>
+                </Tab>
+            </TabBar>
+        </Shell>
+    </Application.MainPage>
 </Application>

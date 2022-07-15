@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Converter.VolumePage"
+             xmlns:model="clr-namespace:Converter.Models"
+             xmlns:viewmodel="clr-namespace:Converter.ViewModels"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="True"
+             Title="Measurement Converter!"
+             x:DataType="viewmodel:MeasurementViewModel">
+
+
+        <StackLayout Spacing="25" BackgroundColor="#512BD4" Padding="20">
+            <Label
+            Text="Volume!"
+            SemanticProperties.HeadingLevel="Level1"
+            FontSize="25"
+            HorizontalOptions="Center" 
+            TextColor="White"/>
+            <Frame BorderColor="Black" Padding="10">
+                <Editor 
+                x:Name="measurementEditor"
+                Placeholder="Enter your response here" 
+                Keyboard="Numeric"
+                FontSize="15"/>
+            </Frame>
+            <Frame BorderColor="Black" Padding="10">
+                <Picker 
+                x:Name="fromPicker"                
+                Title="Measurement From"
+                ItemsSource="{Binding Measurements}"
+                ItemDisplayBinding="{Binding Name}" 
+                FontSize="15"
+                />
+            </Frame>
+            <Frame BorderColor="Black" Padding="10">
+                <Picker 
+                x:Name="toPicker"                
+                Title="Measurement To"
+                ItemsSource="{Binding Measurements}"
+                ItemDisplayBinding="{Binding Name}"
+                FontSize="15"
+                />
+            </Frame>
+            <Frame BorderColor="Black" Padding="10">
+                <Editor x:Name="measurementResult" IsReadOnly="True" Placeholder="Result"/>
+            </Frame>
+            <HorizontalStackLayout Spacing="25" HorizontalOptions="Center">
+                <Button
+                    x:Name="CounterBtn"
+                    Text="Click me"
+                    SemanticProperties.Hint="Counts the number of times you click"
+                    Clicked="ConvertMeasurement"
+                    HorizontalOptions="Center" 
+                    BackgroundColor="#2B0B98"
+                    TextColor="White"
+                    HeightRequest="50"/>
+                <Button
+                    x:Name="ClearBtn"
+                    Text="Clear"
+                    SemanticProperties.Hint="Counts the number of times you click"
+                    Clicked="ClearMeasurements"
+                    HorizontalOptions="Center" 
+                    BackgroundColor="White"
+                    TextColor="#2B0B98"
+                    HeightRequest="50"/>
+            </HorizontalStackLayout>
+        </StackLayout>
+</ContentPage>

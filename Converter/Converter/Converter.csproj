@@ -53,12 +53,32 @@
 	<ItemGroup>
 	  <None Remove="Resources\AppIcon\ic_launcher.png" />
 	  <None Remove="Resources\AppIcon\ic_launcher_round.png" />
+	  <None Remove="Resources\Images\tbs.svg" />
+	  <None Remove="Resources\Images\weight.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0-preview4" />
 	  <PackageReference Include="Microsoft.NET.Workload.Mono.ToolChain.Manifest-6.0.200" Version="6.0.7" />
 	  <PackageReference Include="System.Text.Json" Version="7.0.0-preview.6.22324.4" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\VolumePage.xaml.cs">
+	    <DependentUpon>VolumePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\WeightPage.xaml.cs">
+	    <DependentUpon>WeightPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="MainPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\VolumePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
