@@ -9,12 +9,8 @@
              Title=""
              x:DataType="viewmodel:MeasurementViewModel">
 
-    <Frame CornerRadius="10"  
-       BackgroundColor="#512BD4"    
-       Padding="20"
-       Margin="30"
-       HeightRequest="500">
-        <StackLayout Spacing="25">
+
+        <StackLayout Spacing="25" BackgroundColor="#512BD4" Padding="20">
             <Label
             Text="Measurement Converter!"
             SemanticProperties.HeadingLevel="Level1"
@@ -70,5 +66,4 @@
                     HeightRequest="50"/>
             </HorizontalStackLayout>
         </StackLayout>
-    </Frame>
 </ContentPage>
