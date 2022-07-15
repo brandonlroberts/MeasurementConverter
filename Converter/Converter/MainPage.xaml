@@ -9,43 +9,65 @@
              Title="Measurement Converter"
              x:DataType="viewmodel:MeasurementViewModel">
 
-    <StackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center"
-            HorizontalOptions="Center">
-        <Label
-                Text="Measurement Converter!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="25"
-                HorizontalOptions="Center" />
-            
-            <Editor x:Name="measurementEditor"
+    <Frame CornerRadius="10"  
+       BackgroundColor="#512BD4"    
+       Padding="20"
+       Margin="30"
+       HeightRequest="500">
+        <StackLayout Spacing="25">
+            <Label
+            Text="Measurement Converter!"
+            SemanticProperties.HeadingLevel="Level1"
+            FontSize="25"
+            HorizontalOptions="Center" 
+            TextColor="White"/>
+            <Frame BorderColor="Black" Padding="10">
+                <Editor 
+                x:Name="measurementEditor"
                 Placeholder="Enter your response here" 
-                    Keyboard="Numeric"/>
-
-            <Picker 
+                Keyboard="Numeric"
+                FontSize="15"/>
+            </Frame>
+            <Frame BorderColor="Black" Padding="10">
+                <Picker 
                 x:Name="fromPicker"                
                 Title="Measurement From"
                 ItemsSource="{Binding Measurements}"
-                ItemDisplayBinding="{Binding Name}" />
-            
-            <Picker 
+                ItemDisplayBinding="{Binding Name}" 
+                FontSize="15"
+                />
+            </Frame>
+            <Frame BorderColor="Black" Padding="10">
+                <Picker 
                 x:Name="toPicker"                
                 Title="Measurement To"
                 ItemsSource="{Binding Measurements}"
-                ItemDisplayBinding="{Binding Name}"/>
-
-            <Editor x:Name="measurementResult"/>
-            <!--<Label Text="{Binding SelectedMonkey.Name}" />-->
-
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="ConvertMeasurement"
-                HorizontalOptions="Center" />
-
+                ItemDisplayBinding="{Binding Name}"
+                FontSize="15"
+                />
+            </Frame>
+            <Frame BorderColor="Black" Padding="10">
+                <Editor x:Name="measurementResult" IsReadOnly="True" Placeholder="Result"/>
+            </Frame>
+            <HorizontalStackLayout Spacing="25" HorizontalOptions="Center">
+                <Button
+                    x:Name="CounterBtn"
+                    Text="Click me"
+                    SemanticProperties.Hint="Counts the number of times you click"
+                    Clicked="ConvertMeasurement"
+                    HorizontalOptions="Center" 
+                    BackgroundColor="#2B0B98"
+                    HeightRequest="50"/>
+                <Button
+                    x:Name="ClearBtn"
+                    Text="Clear"
+                    SemanticProperties.Hint="Counts the number of times you click"
+                    Clicked="ClearMeasurements"
+                    HorizontalOptions="Center" 
+                    BackgroundColor="White"
+                    TextColor="#2B0B98"
+                    HeightRequest="50"/>
+            </HorizontalStackLayout>
         </StackLayout>
-
+    </Frame>
 </ContentPage>

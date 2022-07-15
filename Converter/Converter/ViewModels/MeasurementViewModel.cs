@@ -1,5 +1,4 @@
 ﻿using MonkeyFinder.Services;
-using System.Reflection;
 
 namespace Converter.ViewModels
 {
@@ -25,13 +24,6 @@ namespace Converter.ViewModels
 
             try
             {
-                //if (connectivity.NetworkAccess != NetworkAccess.Internet)
-                //{
-                //    await Shell.Current.DisplayAlert("No connectivity!",
-                //        $"Please check internet and try again.", "OK");
-                //    return;
-                //}
-
                 IsBusy = true;
                 var measurements = _measurementService.GetMeasurementList();
 

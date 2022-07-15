@@ -30,5 +30,13 @@ public partial class MainPage : ContentPage
         }
 
     }
+
+    void ClearMeasurements(object sender, EventArgs e)
+    {
+            fromPicker.SelectedIndex = -1;
+            toPicker.SelectedIndex = -1;
+            measurementEditor.Text = "";
+            measurementResult.Text = "";
+    }
 }
 
