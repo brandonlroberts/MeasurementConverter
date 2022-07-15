@@ -6,7 +6,7 @@
              xmlns:viewmodel="clr-namespace:Converter.ViewModels"
              xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
              ios:Page.UseSafeArea="True"
-             Title="Measurement Converter"
+             Title=""
              x:DataType="viewmodel:MeasurementViewModel">
 
     <Frame CornerRadius="10"  
