@@ -28,7 +28,7 @@
                 <Picker 
                 x:Name="fromPicker"                
                 Title="Measurement From"
-                ItemsSource="{Binding Measurements}"
+                ItemsSource="{Binding VolumeMeasurements}"
                 ItemDisplayBinding="{Binding Name}" 
                 FontSize="15"
                 />
@@ -37,7 +37,7 @@
                 <Picker 
                 x:Name="toPicker"                
                 Title="Measurement To"
-                ItemsSource="{Binding Measurements}"
+                ItemsSource="{Binding VolumeMeasurements}"
                 ItemDisplayBinding="{Binding Name}"
                 FontSize="15"
                 />

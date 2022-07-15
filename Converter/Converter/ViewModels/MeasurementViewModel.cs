@@ -4,7 +4,9 @@ namespace Converter.ViewModels
 {
     public partial class MeasurementViewModel : BaseViewModel
     {
-        public ObservableCollection<Measurement> Measurements { get; set; } = new ObservableCollection<Measurement>();
+        public ObservableCollection<Measurement> WeightMeasurements { get; set; } = new ObservableCollection<Measurement>();
+        public ObservableCollection<Measurement> VolumeMeasurements { get; set; } = new ObservableCollection<Measurement>();
+
         MeasurementService _measurementService;
 
         public MeasurementViewModel(MeasurementService measurementService)
@@ -17,7 +19,7 @@ namespace Converter.ViewModels
         bool isRefreshing;
 
         [RelayCommand]
-        async Task GetMeasurementsAsync()
+        async Task GetWeightMeasurementsAsync()
         {
             if (IsBusy)
                 return;
@@ -25,13 +27,44 @@ namespace Converter.ViewModels
             try
             {
                 IsBusy = true;
-                var measurements = _measurementService.GetMeasurementList();
+                var measurements = _measurementService.GetWeightMeasurementList();
 
-                if (Measurements.Count != 0)
-                    Measurements.Clear();
+                if (WeightMeasurements.Count != 0)
+                    WeightMeasurements.Clear();
 
                 foreach (var measurement in measurements)
-                    Measurements.Add(measurement);
+                    WeightMeasurements.Add(measurement);
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Unable to get monkeys: {ex.Message}");
+                await Shell.Current.DisplayAlert("Error!", ex.Message, "OK");
+            }
+            finally
+            {
+                IsBusy = false;
+                IsRefreshing = false;
+            }
+
+        }
+
+        [RelayCommand]
+        async Task GetVolumeMeasurementsAsync()
+        {
+            if (IsBusy)
+                return;
+
+            try
+            {
+                IsBusy = true;
+                var measurements = _measurementService.GetVolumeMeasurementList();
+
+                if (VolumeMeasurements.Count != 0)
+                    VolumeMeasurements.Clear();
+
+                foreach (var measurement in measurements)
+                    VolumeMeasurements.Add(measurement);
 
             }
             catch (Exception ex)

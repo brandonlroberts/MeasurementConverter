@@ -9,7 +9,7 @@ public partial class VolumePage : ContentPage
     public VolumePage(MeasurementViewModel viewModel, MeasurementService measurementService)
 	{
 		InitializeComponent();
-		viewModel.GetMeasurementsCommand.Execute(this);
+		viewModel.GetVolumeMeasurementsCommand.Execute(this);
 		BindingContext = viewModel;
         _measurementService = measurementService;
     }
@@ -23,15 +23,16 @@ public partial class VolumePage : ContentPage
             double result = 0;
             string value = measurementEditor.Text;
 
-            if (double.TryParse(value, out double newValue) && newValue > 0)
-            {
-                result = _measurementService.GetMeasurementConversions(from, to, newValue);
-            }
-            else
-            {
-                Shell.Current.DisplayAlert("Please enter a valid number!", "Number must also be greater than zero.", "OK");
-            }            
-            measurementResult.Text = $"{result} {to.Name}(s) ";
+            //if (double.TryParse(value, out double newValue) && newValue > 0)
+            //{
+            //    result = _measurementService.GetVolumeMeasurementConversions(from, to, newValue);
+            //}
+            //else
+            //{
+            //    Shell.Current.DisplayAlert("Please enter a valid number!", "Number must also be greater than zero.", "OK");
+            //}            
+            //measurementResult.Text = $"{result} {to.Name}(s) ";
+            measurementResult.Text = $"This shit don't work yet....";
         }
         catch (NullReferenceException)
         {

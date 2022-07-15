@@ -4,6 +4,6 @@ public class OunceConversionService
 {
     public double ConvertGramsToOunces(double grams)
     {
-        return grams / 28.35;
+        return Math.Round(grams / 28.35, 2);
     }
 }

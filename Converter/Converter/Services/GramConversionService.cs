@@ -4,6 +4,6 @@ public class GramConversionService
 {
     public double ConvertOuncesToGrams(double ounces)
     {
-        return ounces * 28.35;
+        return Math.Round(ounces * 28.35, 2);
     }
 }

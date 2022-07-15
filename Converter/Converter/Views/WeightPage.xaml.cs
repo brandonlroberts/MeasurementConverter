@@ -1,4 +1,5 @@
-﻿using MonkeyFinder.Services;
+﻿using Converter.CustomExceptions;
+using MonkeyFinder.Services;
 
 namespace Converter;
 
@@ -9,7 +10,7 @@ public partial class WeightPage : ContentPage
     public WeightPage(MeasurementViewModel viewModel, MeasurementService measurementService)
 	{
 		InitializeComponent();
-		viewModel.GetMeasurementsCommand.Execute(this);
+		viewModel.GetWeightMeasurementsCommand.Execute(this);
 		BindingContext = viewModel;
         _measurementService = measurementService;
     }
@@ -20,18 +21,23 @@ public partial class WeightPage : ContentPage
 		{
             var from = fromPicker?.SelectedItem as Measurement;
             var to = toPicker?.SelectedItem as Measurement;
+            if (from.Id == to.Id) throw new SameValueSelectedException();
             double result = 0;
             string value = measurementEditor.Text;
 
             if (double.TryParse(value, out double newValue) && newValue > 0)
             {
-                result = _measurementService.GetMeasurementConversions(from, to, newValue);
+                result = _measurementService.GetWeightMeasurementConversions(from, to, newValue);
             }
             else
             {
                 Shell.Current.DisplayAlert("Please enter a valid number!", "Number must also be greater than zero.", "OK");
             }            
             measurementResult.Text = $"{result} {to.Name}(s) ";
+        }
+        catch (SameValueSelectedException)
+        {
+            Shell.Current.DisplayAlert("Nothing to convert here... ", "You selected the same values...", "OK");
         }
         catch (NullReferenceException)
         {
