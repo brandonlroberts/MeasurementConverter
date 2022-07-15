@@ -50,6 +50,7 @@
 
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0-preview4" />
+	  <PackageReference Include="Microsoft.NET.Workload.Mono.ToolChain.Manifest-6.0.200" Version="6.0.7" />
 	  <PackageReference Include="System.Text.Json" Version="7.0.0-preview.6.22324.4" />
 	</ItemGroup>
 
