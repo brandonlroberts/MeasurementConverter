@@ -16,6 +16,8 @@ public static class MauiProgram
 			});
 
         builder.Services.AddSingleton<MeasurementService>();
+        builder.Services.AddSingleton<GramConversionService>();
+        builder.Services.AddSingleton<OunceConversionService>();
         builder.Services.AddSingleton<MeasurementViewModel>();
         builder.Services.AddSingleton<MainPage>();
 

@@ -1,14 +1,19 @@
-﻿namespace MonkeyFinder.Services;
+﻿using Converter;
+
+namespace MonkeyFinder.Services;
 
 public class MeasurementService
 {
-    //HttpClient httpClient;
-    public MeasurementService()
+    List<Measurement> measurementList;
+    private readonly GramConversionService _gramConversionService;
+    private readonly OunceConversionService _ounceConversionService;
+
+    public MeasurementService(GramConversionService gramConversionService, OunceConversionService ounceConversionService)
     {
-        //this.httpClient = new HttpClient();
+        _gramConversionService = gramConversionService;
+        _ounceConversionService = ounceConversionService;
     }
 
-    List<Measurement> measurementList;
     public List<Measurement> GetMeasurementList()
     {
         if (measurementList?.Count > 0)
@@ -19,24 +24,39 @@ public class MeasurementService
                 new Measurement
                 {
                     Id = 1,
-                    Name = "cup"
+                    Name = ApplicationConstants.MeasurementName_Ounce
                 },
                 new Measurement
                 {
                     Id = 2,
-                    Name = "tablespoon"
-                },
-                new Measurement
-                {
-                    Id= 3,
-                    Name = "teaspoon"
+                    Name = ApplicationConstants.MeasurementName_Gram
                 }
             };
-        //using var stream = await FileSystem.OpenAppPackageFileAsync("monkeydata.json");
-        //using var reader = new StreamReader(stream);
-        //var contents = await reader.ReadToEndAsync();
-        //monkeyList = JsonSerializer.Deserialize<List<Monkey>>(contents);
-
         return measurementList;
+    }
+
+    public double GetMeasurementConversions(Measurement from, Measurement to, double value)
+    {
+        double result = 0;
+
+        if (from.Name == ApplicationConstants.MeasurementName_Ounce && to.Name == ApplicationConstants.MeasurementName_Gram)
+        {
+            result = GetOuncesToGrams(value);
+        }
+        if (from.Name == ApplicationConstants.MeasurementName_Gram && to.Name == ApplicationConstants.MeasurementName_Ounce)
+        {
+            result = GetGramsToOunces(value);
+        }
+        return result;
+    }
+
+    public double GetOuncesToGrams(double ounces)
+    {
+        return _gramConversionService.ConvertOuncesToGrams(ounces);
+    }
+
+    public double GetGramsToOunces(double grams)
+    {
+        return _ounceConversionService.ConvertGramsToOunces(grams);
     }
 }

@@ -1,13 +1,18 @@
-﻿namespace Converter;
+﻿using MonkeyFinder.Services;
+
+namespace Converter;
 
 public partial class MainPage : ContentPage
 {
-	public MainPage(MeasurementViewModel viewModel)
+    private readonly MeasurementService _measurementService;
+
+    public MainPage(MeasurementViewModel viewModel, MeasurementService measurementService)
 	{
 		InitializeComponent();
 		viewModel.GetMeasurementsCommand.Execute(this);
 		BindingContext = viewModel;
-	}
+        _measurementService = measurementService;
+    }
 
     void ConvertMeasurement(object sender, EventArgs e)
     {
@@ -15,15 +20,23 @@ public partial class MainPage : ContentPage
 		{
             var from = fromPicker?.SelectedItem as Measurement;
             var to = toPicker?.SelectedItem as Measurement;
-            string myText = measurementEditor.Text;
+            double result = 0;
+            string value = measurementEditor.Text;
 
-            measurementResult.Text = $"Convert {myText} {from.Name}s to 1 {to.Name} ";
+            if (double.TryParse(value, out double newValue) && newValue > 0)
+            {
+                result = _measurementService.GetMeasurementConversions(from, to, newValue);
+            }
+            else
+            {
+                Shell.Current.DisplayAlert("Please enter a valid number!", "Number must also be greater than zero.", "OK");
+            }            
+            measurementResult.Text = $"{result} {to.Name}(s) ";
         }
         catch (NullReferenceException)
         {
             Shell.Current.DisplayAlert("Please complete all the selections!", "", "OK");
         }
-
         catch (Exception ex)
         {
             Shell.Current.DisplayAlert("Error!", ex.Message, "OK");
