@@ -6,10 +6,10 @@
     xmlns:local="clr-namespace:Converter"
     Shell.FlyoutBehavior="Disabled">
     <TabBar x:Name="MeasurementTabs">
-        <Tab Title="Weight" Icon="{OnPlatform Android=weight.svg}">
+        <Tab Title="Weight" Icon="{OnPlatform Android=weight.svg, iOS=weightios}">
             <ShellContent ContentTemplate="{DataTemplate local:WeightPage}"/>
         </Tab>
-        <Tab Title="Volume" Icon="{OnPlatform Android=tbs.svg}">
+        <Tab Title="Volume" Icon="{OnPlatform Android=tbs.svg, iOS=tbsios}">
             <ShellContent ContentTemplate="{DataTemplate local:VolumePage}"/>
         </Tab>
     </TabBar>

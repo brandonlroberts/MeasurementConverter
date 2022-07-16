@@ -52,7 +52,9 @@
 	  <None Remove="Resources\AppIcon\ic_launcher.png" />
 	  <None Remove="Resources\AppIcon\ic_launcher_round.png" />
 	  <None Remove="Resources\Images\tbs.svg" />
+	  <None Remove="Resources\Images\tbsios.png" />
 	  <None Remove="Resources\Images\weight.svg" />
+	  <None Remove="Resources\Images\weightios.png" />
 	</ItemGroup>
 
 	<ItemGroup>
