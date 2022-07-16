@@ -28,6 +28,13 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<CodesignProvision />
+		<ProvisioningType>automatic</ProvisioningType>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)'=='net6.0-ios'">
+	  <CodesignKey>Apple Development: Created via API (525U7L4JYR)</CodesignKey>
+	  <CodesignProvision>VS: WildCard Development</CodesignProvision>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -52,6 +59,7 @@
 	  <None Remove="Resources\AppIcon\ic_launcher.png" />
 	  <None Remove="Resources\AppIcon\ic_launcher_round.png" />
 	  <None Remove="Resources\Images\tbs.svg" />
+	  <None Remove="Resources\Images\tbsblack.svg" />
 	  <None Remove="Resources\Images\tbsios.png" />
 	  <None Remove="Resources\Images\weight.svg" />
 	  <None Remove="Resources\Images\weightios.png" />
