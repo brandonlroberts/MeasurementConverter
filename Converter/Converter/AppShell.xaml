@@ -9,7 +9,7 @@
         <Tab Title="Weight" Icon="{OnPlatform Android=weight.svg}">
             <ShellContent ContentTemplate="{DataTemplate local:WeightPage}"/>
         </Tab>
-        <Tab Title="Volume">
+        <Tab Title="Volume" Icon="{OnPlatform Android=tbs.svg}">
             <ShellContent ContentTemplate="{DataTemplate local:VolumePage}"/>
         </Tab>
     </TabBar>

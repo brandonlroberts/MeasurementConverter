@@ -5,14 +5,13 @@
              xmlns:model="clr-namespace:Converter.Models"
              xmlns:viewmodel="clr-namespace:Converter.ViewModels"
              xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
-             ios:Page.UseSafeArea="True"
-             Title="Measurement Converter!"
+             ios:Page.UseSafeArea="True"          
              x:DataType="viewmodel:MeasurementViewModel">
 
 
         <StackLayout Spacing="25" BackgroundColor="#512BD4" Padding="20">
             <Label
-            Text="Weight!"
+            Text="Convert Weight!"
             SemanticProperties.HeadingLevel="Level1"
             FontSize="25"
             HorizontalOptions="Center" 
