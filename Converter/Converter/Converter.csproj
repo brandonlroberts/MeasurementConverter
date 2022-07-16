@@ -12,7 +12,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>Converter</ApplicationTitle>
+		<ApplicationTitle>Measurement Converter</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.converter</ApplicationId>
