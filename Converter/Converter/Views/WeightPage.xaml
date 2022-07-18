@@ -11,7 +11,7 @@
 
         <StackLayout Spacing="25" BackgroundColor="#512BD4" Padding="20">
             <Label
-            Text="Convert Weight!"
+            Text="Convert Weight!!!"
             SemanticProperties.HeadingLevel="Level1"
             FontSize="25"
             HorizontalOptions="Center" 
