@@ -1,0 +1,11 @@
+** iOS **
+- iPhone 13 Pro Max
+    dotnet build -t:Run -f net6.0-ios -p:_DeviceName=:v2:udid=EC6B73FC-8170-4638-8ACF-710F13D12360
+
+** Android **
+    - Default is a Pixel 5
+    dotnet build -t:Run -f net6.0-android  
+
+** MacOs **
+    dotnet build -t:run -f net6.0-maccatalyst    
+
