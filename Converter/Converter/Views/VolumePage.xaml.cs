@@ -32,7 +32,7 @@ public partial class VolumePage : ContentPage
             //    Shell.Current.DisplayAlert("Please enter a valid number!", "Number must also be greater than zero.", "OK");
             //}            
             //measurementResult.Text = $"{result} {to.Name}(s) ";
-            measurementResult.Text = $"This shit don't work yet....";
+            measurementResult.Text = $"This shit don't work yet.... So the answer is {result}";
         }
         catch (NullReferenceException)
         {
